@@ -6,6 +6,7 @@ import { marked, Renderer } from "marked";
 import {
   type ChangeEvent,
   type DragEvent,
+  useEffect,
   useRef,
   useState,
 } from "react";
@@ -85,6 +86,10 @@ export default function Home() {
   const [error, setError] = useState("");
   const [isDragging, setIsDragging] = useState(false);
   const hasDocument = Boolean(filename);
+
+  useEffect(() => {
+    document.title = filename || "Clean TXT Viewer";
+  }, [filename]);
 
   async function openFile(file: File | undefined) {
     setError("");
