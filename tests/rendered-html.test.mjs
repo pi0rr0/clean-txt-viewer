@@ -13,6 +13,7 @@ test("includes the complete local-only Markdown workflow", async () => {
   ]);
 
   assert.match(page, /Clean TXT Viewer/);
+  assert.match(page, /document\.title = filename \|\| "Clean TXT Viewer"/);
   assert.match(page, /file\.text\(\)/);
   assert.match(page, /DOMPurify\.sanitize/);
   assert.match(page, /hljs\.highlight/);
